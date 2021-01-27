@@ -27,7 +27,7 @@ Example scripts to run jobs on the UIUC campus cluster
     
     **Note 1: The cluster recommends using the host `cc-xfer.campuscluster.illinois.edu` instead of the login host for file transfers**
     
-    **Note 2: I (Rahil) personally recommend rsync since it only pushes/pulls modified files and is especially iseful if the directory contains large data files**
+    **Note 2: I (Rahil) personally recommend rsync since it only pushes/pulls modified files and is especially useful if the directory contains large data files**
 * Prepare a shell script (examples in this repo) and execute `sbatch job_script.sbatch` to run the job
 
 ### General structure for a job script
@@ -42,11 +42,12 @@ Example scripts to run jobs on the UIUC campus cluster
     * mail-user: email address of user for notifications
     * mail-type: type of email notifications to be sent to user
 * Setup the environment the script needs before it can run:
-    * It can be as simple as just loading the correct python or MATLAB module or as complicated as loading a compiler and compiling Fortran/C/C++ code
+    * This ususally involves loading the module using the `module load X` command, corresponding to the language you are trying to run (python, MATLAB, etc.)
+    * It can be as simple as just loading the correct python or MATLAB version or as complicated as loading a compiler and compiling Fortran/C/C++ code before execution
 * Finally, specify the command to run specific files with or without options. For example:
     * `python3 main.py >& logs/${SLURM_JOB_NAME}_${SLURM_JOB_ID}.oe`
-    * `matlab -nodisplay -r main.m >& logs/${SLURM_JOB_NAME}_${SLURM_JOB_ID}.oe`
+    * `matlab -nodisplay -r main.m >& logs/${SLURM_JOB_NAME}_${SLURM_JOB_ID}.oe` (the `>&` writes the outputs/errors from that specific script to a dedicated log file)
     
-    **Note: the `>& logs/${SLURM_JOB_NAME}_${SLURM_JOB_ID}.oe` writes the outputs/errors from that specific file to a dedicated log file**
+    **Note: If you have access to the cluster, the directory `/projects/consult/slurm` has a bunch of example job scripts**
 
 ###### Please feel free to make any changes/additions to these instructions or contact Rahil (makadia2@illinois.edu) if something here is wrong so I don't further propagate false information
