@@ -4,6 +4,7 @@ Example scripts to run jobs on the UIUC campus cluster
 ### Resources with detailed information about the campus cluster:
 1. [Campus cluster website](https://campuscluster.illinois.edu/)
 1. [Getting started guide](https://campuscluster.illinois.edu/resources/docs/start/)
+1. [Storage and data guide](https://campuscluster.illinois.edu/resources/docs/storage-and-data-guide/)
 1. [User guide](https://campuscluster.illinois.edu/resources/docs/user-guide/)
 
 ### General outline for getting acquainted with the cluster and running the first simulation:
@@ -17,7 +18,7 @@ Example scripts to run jobs on the UIUC campus cluster
         * If the script runs a Windows system command, it might need to be modified for Linux. 
         * If the scripts specifies full paths to files, they may need to be changed to relative paths that are consistent on the local and remote machines.
 * Find the directory where you'd like to transfer the necessary data. Every user on the cluster has access to two directories:
-    * Home directory: 2 GB soft limit, 4 GB hard limit, 7-day grace period to get under soft limit
+    * Home directory: 5 GB soft limit, 7 GB hard limit, 7-day grace period to get under soft limit
     * Scratch directory: 10 TB limit, intended for short-term use (files older than 30 days are deleted)
 * Transfer the necessary files (data files, analysis scripts) from local machine to cluster. This can be done using the command line or a client using different methods:
     * Secure copy protocol (SCP), base command: `scp source-directory user@host:destination-directory` for a push or the other way around for a pull. Detailed information [here](https://linux.die.net/man/1/scp)
